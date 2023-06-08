@@ -44,6 +44,7 @@
 
 .eliminar{
     position: absolute;
-    right: -15px;
-    top: -15px;
+    right: -2px;
+    top: -2px;
+    cursor: pointer;
 }

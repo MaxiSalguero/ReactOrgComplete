@@ -10,7 +10,6 @@ const Formulario = (props) => {
     const [puesto, actualizarPuesto] = useState("")
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
-
     const [titulo, actualizarTitulo] = useState("")
     const [color, actualizarColor] = useState("")
 
@@ -18,7 +17,14 @@ const Formulario = (props) => {
 
     const manejarEnvio = (e) => {
         e.preventDefault()
-        console.log("Manejar el envio")
+        //Forma tradicional
+/*         let datosAEnviar = {
+            nombre: nombre
+            puesto: puesto
+            foto: foto
+            equipo: equipo
+        } */
+        //Forma actual js
         let datosAEnviar = {
             nombre,
             puesto,

@@ -106,14 +106,12 @@ function App() {
   //Registrar colaborador
 
   const registrarColaborador = (colaborador) => {
-    console.log("Nuevo colaborador", colaborador)
     //Spread operator
     actualizarColaboradores([...colaboradores, colaborador])
   }
 
   //Eliminar colaborador
   const eliminarColaborador = (id) => {
-    console.log("Eliminar colaborador", id)
     const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id !== id)
     actualizarColaboradores(nuevosColaboradores)
   }
@@ -134,12 +132,10 @@ function App() {
 
   //Crear equipo
   const crearEquipo = (nuevoEquipo) => {
-    console.log(nuevoEquipo)
     actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid() }])
   }
 
   const like = (id) => {
-    console.log("like", id)
     const colaboradoresActualizados = colaboradores.map((colaborador) => {
       if (colaborador.id === id) {
         colaborador.fav = !colaborador.fav
@@ -153,7 +149,7 @@ function App() {
   return (
     <div>
       <Header />
-      {/* {mostrarFormulario ? <Formulario /> : <></>} */}
+ 
       {
         mostrarFormulario && <Formulario
           equipos={equipos.map((equipo) => equipo.titulo)}
@@ -167,7 +163,7 @@ function App() {
       {
         equipos.map((equipo) => <Equipo
           datos={equipo}
-          key={equipo.titulo}
+          key={equipo.id}
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
@@ -177,7 +173,6 @@ function App() {
       }
 
       <Footer />
-
 
     </div>
   );
